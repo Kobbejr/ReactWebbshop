@@ -1,7 +1,7 @@
 THE OG SQUAD
 
-Kenny - Projektledare & Scrum master
-Rebecca + Matilda - Design
+Kenny - Projektledare & Scrum master||
+Rebecca + Matilda - Design||
 Rasmus + Nur - Kod
 
 ---
