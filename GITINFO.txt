@@ -9,3 +9,22 @@ git branch
 (3) Byt till den önskade grenen genom att använda git checkout följt av namnet på den grenen:
 git checkout "namn-på-gren"
 
+GUIDE FÖR ATT DRA NER EN NY FEATURE branch
+
+(1) "Issues" i Github repot, Klicka sen "New issue".
+
+(2) Skriv in en tydlig titel för vad det är för feature, samt beskrivning av vad det kommer innhålla-ish (Kommer bli namnet på branchen.)
+
+(3) Tryck "Submit new issue".
+
+(4) Tryck sedan på "Create a branch" länken till höger. 
+
+(5) Justera namnet till något tydligt.
+
+(6) OBS! Tryck på "Change branch source", och byt Branch Source till dev.
+
+(7) Tryck "Create branch".
+
+(8) Sedan dessa commands i din terminal:
+    git fetch origin
+    git checkout "branchens namn" (utan fnuttar)
