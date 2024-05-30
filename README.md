@@ -1,8 +1,25 @@
-# React + Vite
+THE OG SQUAD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Kenny - Projektledare & Scrum master||
+Rebecca + Matilda - Design||
+Rasmus + Nur - Kod
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+GENERELLT:
+
+- Vi kommer ha 1 veckors sprintar, med uppstart och retro
+
+---
+
+HUR VI ARBETAR MED KODEN:
+
+- Våra Issues "Branch source" ska ALLTID vara "dev"
+
+- När du gör en commit, lägg ALLTID till en kommentar med vad som är ändrat
+
+- Vi kommer att stylea koden med Tailwind (Rasmus tar fram bra cheat scheet för detta)
+
+- I vår github finns även vår _KANBAN_, lägg till project och uppdatera dom såsom är relevant
+
+- Skriv kommentarer i din egna kod så det blir lättare för andra att förstå

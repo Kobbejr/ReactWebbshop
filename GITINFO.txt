@@ -1,0 +1,11 @@
+GUIDE FÖR ATT MANUVRERA I TERMINALEN
+
+(1) Öppna terminalen och navigera till din projektmapp:
+cd /sökväg/till/ditt/projekt
+
+(2) Lista alla tillgängliga grenar för att se vilka grenar som finns:
+git branch
+
+(3) Byt till den önskade grenen genom att använda git checkout följt av namnet på den grenen:
+git checkout "namn-på-gren"
+
