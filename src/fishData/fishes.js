@@ -1,0 +1,248 @@
+const generateFishEntries = () => {
+  const fishEntries = [
+    {
+      id: 21,
+      title: "Animal Crossing Salmon",
+      price: 1000,
+      description: "Description for a Animal Crossing Salmon",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Salmon",
+      category: "fish",
+      rate: {
+        count: 20,
+        rate: 4.8,
+      },
+    },
+    {
+      id: 22,
+      title: "Animal Crossing Tuna",
+      price: 1200,
+      description: "Description for a Animal Crossing Tuna",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Tuna",
+      category: "fish",
+      rate: {
+        count: 18,
+        rate: 4.6,
+      },
+    },
+    {
+      id: 23,
+      title: "Animal Crossing Trout",
+      price: 800,
+      description: "Description for a Animal Crossing Trout",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Trout",
+      category: "fish",
+      rate: {
+        count: 15,
+        rate: 4.5,
+      },
+    },
+    {
+      id: 24,
+      title: "Animal Crossing Cod",
+      price: 1100,
+      description: "Description for a Animal Crossing Cod",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Cod",
+      category: "fish",
+      rate: {
+        count: 22,
+        rate: 4.7,
+      },
+    },
+    {
+      id: 25,
+      title: "Animal Crossing Bass",
+      price: 1500,
+      description: "Description for a Animal Crossing Bass",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Bass",
+      category: "fish",
+      rate: {
+        count: 25,
+        rate: 4.9,
+      },
+    },
+    {
+      id: 26,
+      title: "Animal Crossing Sardine",
+      price: 600,
+      description: "Description for a Animal Crossing Sardine",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Sardine",
+      category: "fish",
+      rate: {
+        count: 12,
+        rate: 4.3,
+      },
+    },
+    {
+      id: 27,
+      title: "Animal Crossing Mackerel",
+      price: 1300,
+      description: "Description for a Animal Crossing Mackerel",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Mackerel",
+      category: "fish",
+      rate: {
+        count: 19,
+        rate: 4.6,
+      },
+    },
+    {
+      id: 28,
+      title: "Animal Crossing Haddock",
+      price: 900,
+      description: "Description for a Animal Crossing Haddock",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Haddock",
+      category: "fish",
+      rate: {
+        count: 17,
+        rate: 4.4,
+      },
+    },
+    {
+      id: 29,
+      title: "Animal Crossing Halibut",
+      price: 1400,
+      description: "Description for a Animal Crossing Halibut",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Halibut",
+      category: "fish",
+      rate: {
+        count: 20,
+        rate: 4.7,
+      },
+    },
+    {
+      id: 30,
+      title: "Animal Crossing Perch",
+      price: 700,
+      description: "Description for a Animal Crossing Perch",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Perch",
+      category: "fish",
+      rate: {
+        count: 15,
+        rate: 4.2,
+      },
+    },
+    {
+      id: 31,
+      title: "Animal Crossing Catfish",
+      price: 1700,
+      description: "Description for a Animal Crossing Catfish",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Catfish",
+      category: "fish",
+      rate: {
+        count: 24,
+        rate: 4.8,
+      },
+    },
+    {
+      id: 32,
+      title: "Animal Crossing Mahi Mahi",
+      price: 1800,
+      description: "Description for a Animal Crossing Mahi Mahi",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Mahi+Mahi",
+      category: "fish",
+      rate: {
+        count: 23,
+        rate: 4.7,
+      },
+    },
+    {
+      id: 33,
+      title: "Animal Crossing Grouper",
+      price: 1600,
+      description: "Description for a Animal Crossing Grouper",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Grouper",
+      category: "fish",
+      rate: {
+        count: 21,
+        rate: 4.6,
+      },
+    },
+    {
+      id: 34,
+      title: "Animal Crossing Snapper",
+      price: 1900,
+      description: "Description for a Animal Crossing Snapper",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Snapper",
+      category: "fish",
+      rate: {
+        count: 27,
+        rate: 4.9,
+      },
+    },
+    {
+      id: 35,
+      title: "Animal Crossing Pike",
+      price: 1000,
+      description: "Description for a Animal Crossing Pike",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Pike",
+      category: "fish",
+      rate: {
+        count: 18,
+        rate: 4.5,
+      },
+    },
+    {
+      id: 36,
+      title: "Animal Crossing Carp",
+      price: 1200,
+      description: "Description for a Animal Crossing Carp",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Carp",
+      category: "fish",
+      rate: {
+        count: 20,
+        rate: 4.6,
+      },
+    },
+    {
+      id: 37,
+      title: "Animal Crossing Flounder",
+      price: 800,
+      description: "Description for a Animal Crossing Flounder",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Flounder",
+      category: "fish",
+      rate: {
+        count: 16,
+        rate: 4.3,
+      },
+    },
+    {
+      id: 38,
+      title: "Animal Crossing Swordfish",
+      price: 1300,
+      description: "Description for a Animal Crossing Swordfish",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Swordfish",
+      category: "fish",
+      rate: {
+        count: 19,
+        rate: 4.7,
+      },
+    },
+    {
+      id: 39,
+      title: "Animal Crossing Herring",
+      price: 1100,
+      description: "Description for a Animal Crossing Herring",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Herring",
+      category: "fish",
+      rate: {
+        count: 15,
+        rate: 4.5,
+      },
+    },
+    {
+      id: 40,
+      title: "Animal Crossing Eel",
+      price: 1400,
+      description: "Description for a Animal Crossing Eel",
+      image: "https://via.placeholder.com/150?text=Animal Crossing+Eel",
+      category: "fish",
+      rate: {
+        count: 10,
+        rate: 4.2,
+      },
+    },
+  ];
+
+  return fishEntries;
+};
+
+export default generateFishEntries;
