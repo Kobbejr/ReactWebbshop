@@ -1,6 +1,7 @@
 import React from 'react';
 import CartIcon from './ShoppingFlow/CartButton';
 import ProductList from './ShoppingFlow/ProductList'; 
+import ErrorBoundary from './ErrorBoundary';
 
 export default function Test() {
   return (
@@ -17,7 +18,7 @@ export default function Test() {
                 Today's Fresh Catch is Here!
               </h1>
               <p className="mt-4 text-xl text-gray-500">
-              Our boats have just returned with the freshest seafood from the ocean. From plump scallops to mouthwatering fish, today's catch promises the highest quality and unbeatable flavor.
+                Our boats have just returned with the freshest seafood from the ocean. From plump scallops to mouthwatering fish, today's catch promises the highest quality and unbeatable flavor.
               </p>
             </div>
             <div>
@@ -87,26 +88,22 @@ export default function Test() {
                     </div>
                   </div>
                 </div>
-  
-                
               </div>
-
-       
-             
             </div>
-             
           </div>
         </div>
       </div>
-      <a
-                  href="#"
-                  className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
-                >
-                  Shop Collection
-                </a>
       <div className="mt-10">
-                <ProductList />
-              </div>
+        <ErrorBoundary fallback={<p>Something went wrong while loading products.</p>}>
+          <ProductList />
+        </ErrorBoundary>
+      </div>
+      <a
+        href="#"
+        className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
+      >
+        Shop Collection
+      </a>
     </div>
   );
 }

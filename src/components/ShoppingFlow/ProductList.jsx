@@ -1,28 +1,34 @@
-import React, {useEffect, useState} from "react";
+import React, { useState, useEffect } from "react";
+import StoreItem from "./StoreItem";
+import axios from "axios";
+
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then(res => res.json())
-      .then(data => setProducts(data))
-      .catch(error => console.error('Error fetching data:', error));
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((response) => setProducts(response.data))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-      {products.map(product => (
-        <div key={product.id} className="p-4 border rounded shadow">
-          <img src={product.image} alt={product.title} className="w-full h-48 object-cover" />
-          <h2 className="text-lg font-bold mt-2">{product.title}</h2>
-          <p className="text-gray-700">${product.price}</p>
-          <p className="text-gray-600">{product.category}</p>
-        </div>
-      ))}
+    <div className="container mx-auto py-8 px-4">
+      <h1 className="text-3xl font-bold mb-4">Sorted by Popular Choice</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {products.map((item) => (
+          <StoreItem
+            key={item.id}
+            id={item.id}
+            name={item.title}
+            price={item.price}
+            imgUrl={item.image}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
 export default ProductList;
-
