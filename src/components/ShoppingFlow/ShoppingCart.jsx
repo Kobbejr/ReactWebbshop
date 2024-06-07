@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useShoppingCart } from "../context/CartContext";
-import { formatCurrency } from "./Currency";
+import { Currency } from "./Currency";
 import { CartItem } from "./CartItem";
 
 export function ShoppingCart({ isOpen }) {
@@ -9,10 +9,10 @@ export function ShoppingCart({ isOpen }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(response.data))
-      .catch((error) => console.error("Error fetching data:", error));
+    axios("https://fakestoreapi.com/products")
+      .then(res => res.json())
+      .then(data => setProducts(data))
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   return (
@@ -38,16 +38,14 @@ export function ShoppingCart({ isOpen }) {
                   return (
                     <CartItem
                       key={item.id}
-                      id={product.id}
-                      name={product.title}
-                      price={product.price}
+                      product={product} // Pass entire product object
                       quantity={item.quantity}
                     />
                   );
                 })}
                 <div className="flex justify-end font-bold text-xl">
                   Total{" "}
-                  {formatCurrency(
+                  {Currency(
                     cartItems.reduce((total, cartItem) => {
                       const product = products.find(
                         (product) => product.id === cartItem.id

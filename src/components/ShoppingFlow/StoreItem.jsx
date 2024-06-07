@@ -1,6 +1,6 @@
 import React from "react";
 import { useShoppingCart } from "../context/CartContext";
-import { formatCurrency } from "./Currency";
+import { Currency } from "./Currency";
 
 const StoreItem = ({ id, name, price, imgUrl }) => {
   const {
@@ -15,7 +15,7 @@ const StoreItem = ({ id, name, price, imgUrl }) => {
     <div className="bg-white rounded-lg shadow-md p-4">
       <img src={imgUrl} alt={name} className="w-full h-48 object-cover mb-4" />
       <h2 className="text-xl font-semibold mb-2">{name}</h2>
-      <p className="text-gray-600">{formatCurrency(price)}</p>
+      <p className="text-gray-600">{Currency(price)}</p>
       <div className="mt-auto">
         {quantity === 0 ? (
           <button

@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import { useShoppingCart } from "../context/CartContext";
-import axios from "axios";
-import { formatCurrency } from "./Currency";
+import { Currency } from "./Currency";
 
-export function CartItem({ id, quantity }) {
+export function CartItem({ product, quantity }) { // Receive product object directly
   const { removeFromCart } = useShoppingCart();
-  const [product, setProduct] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get(`https://fakestoreapi.com/products/${id}`)
-      .then((response) => setProduct(response.data))
-      .catch((error) => console.error("Error fetching product data:", error));
-  }, [id]);
-
-  if (!product) return null;
 
   return (
     <div className="flex items-center gap-2">
@@ -31,10 +20,10 @@ export function CartItem({ id, quantity }) {
               <span className="text-sm text-gray-500">x{quantity}</span>
             )}
           </div>
-          <div className="text-gray-600">{formatCurrency(product.price)}</div>
+          <div className="text-gray-600">{Currency(product.price)}</div>
         </div>
         <div className="text-gray-600 text-sm">
-          Total: {formatCurrency(product.price * quantity)}
+          Total: {Currency(product.price * quantity)}
         </div>
       </div>
       <button
