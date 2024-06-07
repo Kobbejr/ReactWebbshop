@@ -1,5 +1,6 @@
 import React from 'react';
 import CartIcon from './ShoppingFlow/CartButton';
+import ProductList from './ShoppingFlow/ProductList'; 
 
 export default function Test() {
   return (
@@ -13,11 +14,10 @@ export default function Test() {
           <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             <div className="sm:max-w-lg">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Summer styles are finally here
+                Today's Fresh Catch is Here!
               </h1>
               <p className="mt-4 text-xl text-gray-500">
-                This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care
-                if you live or die.
+              Our boats have just returned with the freshest seafood from the ocean. From plump scallops to mouthwatering fish, today's catch promises the highest quality and unbeatable flavor.
               </p>
             </div>
             <div>
@@ -88,17 +88,25 @@ export default function Test() {
                   </div>
                 </div>
   
-                <a
+                
+              </div>
+
+       
+             
+            </div>
+             
+          </div>
+        </div>
+      </div>
+      <a
                   href="#"
                   className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
                 >
                   Shop Collection
                 </a>
+      <div className="mt-10">
+                <ProductList />
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
