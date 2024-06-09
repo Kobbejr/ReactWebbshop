@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const CartDrawer = ({ cart, products, incrementQuantity, decrementQuantity, closeDrawer, goToCheckout }) => {
   const getTotalPrice = () => {
     return Object.keys(cart).reduce((total, id) => {
