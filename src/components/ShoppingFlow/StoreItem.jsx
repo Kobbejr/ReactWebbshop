@@ -17,17 +17,17 @@ const StoreItem = ({
       <p className="text-gray-700">${price.toFixed(2)}</p>
       <div className="mt-4">
         {quantity > 0 ? (
-          <div className="flex items-center space-x-4">
+          <div className="w-[150px] h-[50px] p-2.5 bg-sky-50 rounded-[30px] border-2 border-teal-600 justify-center items-center gap-6 inline-flex">
             <button
               onClick={() => decrementQuantity(id)}
-              className="bg-red-500 text-white px-2 py-1 rounded"
+              className="text-stone-900 text-2xl font-semibold"
             >
               -
             </button>
-            <span>{quantity}</span>
+            <span className="text-stone-900 text-2xl font-semibold">{quantity}</span>
             <button
               onClick={() => incrementQuantity(id)}
-              className="bg-green-500 text-white px-2 py-1 rounded"
+              className="text-stone-900 text-2xl font-semibold"
             >
               +
             </button>
@@ -35,7 +35,7 @@ const StoreItem = ({
         ) : (
           <button
             onClick={() => addToCart(id)}
-            className="bg-blue-500 text-white px-4 py-2 bottom-0 w-full"
+            className="bg-teal-600 text-white px-4 py-2 bottom-0 w-full rounded-[5px] shadow-inner justify-center items-center gap-3 inline-flex"
           >
             Add to Cart
           </button>
