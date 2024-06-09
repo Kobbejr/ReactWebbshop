@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../assets/logo.png"; 
+import logo from "../assets/logo.png";
+import ProductList from "./ShoppingFlow/ProductList";
 
 const Navbar = ({ totalItems, toggleCartDrawer }) => {
   return (
