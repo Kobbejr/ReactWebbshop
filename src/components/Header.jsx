@@ -22,12 +22,17 @@ const Header = () => {
             <img
               src="/KappnsCatch-logotype.svg"
               alt="Logo"
-              className="hidden lg:block h-20"
+              className="hidden md:block lg:hidden h-20"
             />
             <img
               src="/KappnsCatch-logotype-mobile.svg"
               alt="Mobile Logo"
-              className="block lg:hidden h-12"
+              className="block md:hidden h-12"
+            />
+            <img
+              src="/KappnsCatch-logotype.svg"
+              alt="Logo"
+              className="hidden lg:block h-20"
             />
           </Link>
         </div>

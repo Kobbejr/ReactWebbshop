@@ -11,8 +11,7 @@ import Header from "./components/Header";
 import Landingpage from "./pages/Landingpage";
 import Products from "./pages/Products";
 
-const Home = () => <h1 className="text-3xl font-bold">Hello world!</h1>;
-const Cart = () => <h2>Cart Slide In</h2>;
+const Cart = () => <h2>Cart Curtain Slide-in</h2>;
 
 function App() {
   return (
