@@ -31,12 +31,7 @@ function App() {
     fetchData();
   }, []);
 
-  return (
-    <div>
-      <h1 className="text-3xl font-bold">Hello world!</h1>
-      <h2>WAZZZAPPP!</h2>
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;
