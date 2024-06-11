@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import fetchData from "../fetch/fetchData";
+import ProductList from '../components/ShoppingFlow/ProductList.jsx';
 
 const Products = () => {
+  const [fishProducts, setFishProducts] = useState([]);
+
   useEffect(() => {
     fetchData()
       .then((combinedProducts) => {
         // Filter products with category "Fish"
-        const fishProducts = combinedProducts.filter(
+        const filteredProducts = combinedProducts.filter(
           (product) => product.category === "Fish"
         );
-        // Console log fishProducts
-        console.log("Fish Products:", fishProducts);
+        // Set fishProducts state
+        setFishProducts(filteredProducts);
+        // Console log filtered products
+        console.log("Fish Products:", filteredProducts);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -19,7 +24,9 @@ const Products = () => {
 
   return (
     <div>
-      <h1>Products page</h1>
+      {/* Pass fishProducts as props to ProductList component */}
+      <ProductList 
+      products={fishProducts} />
     </div>
   );
 };
