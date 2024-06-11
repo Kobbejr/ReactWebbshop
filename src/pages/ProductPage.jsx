@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useShoppingCart } from "../context/CartContext";
-import { Currency } from "./Currency";
+import { useShoppingCart } from "../components/context/CartContext";
+import { Currency } from "../components/ShoppingFlow/Currency";
 import Header from "../components/Header";
 
 const ProductPage = () => {
