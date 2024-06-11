@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import CartIcon from "./CartIcon";
-import MenuIcon from "./MenuIcon";
-import CrossIcon from "./CrossIcon";
+import CartIcon from "./MenuCartIcon";
+import MenuIcon from "./MenuMenuIcon";
+import CrossIcon from "./MenuCrossIcon";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
