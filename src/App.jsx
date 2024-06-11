@@ -13,6 +13,7 @@ import Products from "./pages/Products";
 
 const Cart = () => <h2>Cart Curtain Slide-in</h2>;
 
+
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
       </Routes>
     </Router>
   );
+
 }
 
 export default App;
