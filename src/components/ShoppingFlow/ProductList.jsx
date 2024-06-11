@@ -77,19 +77,10 @@ const ProductList = () => {
             products={products}
             incrementQuantity={incrementQuantity}
             decrementQuantity={decrementQuantity}
-            quantity={cart[item.id] || 0}
+            closeDrawer={toggleCartDrawer}
           />
-        ))}
+        )}
       </div>
-      {isCartOpen && (
-        <CartDrawer
-          cart={cart}
-          products={products}
-          incrementQuantity={incrementQuantity}
-          decrementQuantity={decrementQuantity}
-          closeDrawer={toggleCartDrawer}
-        />
-      )}
     </div>
   );
 };
