@@ -54,16 +54,27 @@ const ProductList = () => {
   };
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {products.map((item) => (
-          <StoreItem
-            key={item.id}
-            id={item.id}
-            name={item.title}
-            price={item.price}
-            imgUrl={item.image}
-            addToCart={addToCart}
+    <div>
+      <div className="container mx-auto py-8 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {products.map((item) => (
+            <StoreItem
+              key={item.id}
+              id={item.id}
+              name={item.title}
+              price={item.price}
+              imgUrl={item.image}
+              addToCart={addToCart}
+              incrementQuantity={incrementQuantity}
+              decrementQuantity={decrementQuantity}
+              quantity={cart[item.id] || 0}
+            />
+          ))}
+        </div>
+        {isCartOpen && (
+          <CartDrawer
+            cart={cart}
+            products={products}
             incrementQuantity={incrementQuantity}
             decrementQuantity={decrementQuantity}
             quantity={cart[item.id] || 0}
