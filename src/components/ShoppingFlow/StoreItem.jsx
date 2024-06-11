@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const StoreItem = ({
   id,
@@ -12,8 +13,10 @@ const StoreItem = ({
 }) => {
   return (
     <div className="store-item border p-4 rounded-md">
-      <img src={imgUrl} alt={name} className="w-full h-64 object-cover mb-4" />
-      <h2 className="text-lg font-bold mb-2">{name}</h2>
+      <Link to={`/product/${id}`}>
+        <img src={imgUrl} alt={name} className="w-full h-64 object-cover mb-4" />
+        <h2 className="text-lg font-bold mb-2">{name}</h2>
+      </Link>
       <p className="text-gray-700">${price.toFixed(2)}</p>
       <div className="mt-4">
         {quantity > 0 ? (
