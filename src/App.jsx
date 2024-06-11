@@ -18,7 +18,6 @@ function App() {
   return (
     <Router>
       <Header />
-      <Landingpage />
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/products" element={<Products />} />
