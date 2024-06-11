@@ -1,56 +1,99 @@
 import React from "react";
+import CrossIcon from "../MenuCrossIcon"; // Import the cross icon
 
-const CartDrawer = ({ cart, products, incrementQuantity, decrementQuantity, closeDrawer, goToCheckout }) => {
+const CartDrawer = ({
+  isOpen,
+  closeDrawer,
+  cart = {},
+  products = [],
+  incrementQuantity,
+  decrementQuantity,
+  goToCheckout,
+  totalItems,
+}) => {
   const getTotalPrice = () => {
-    return Object.keys(cart).reduce((total, id) => {
-      const product = products.find((item) => item.id === parseInt(id));
-      return total + product.price * cart[id];
-    }, 0).toFixed(2);
+    return Object.keys(cart)
+      .reduce((total, id) => {
+        const product = products.find((item) => item.id === parseInt(id));
+        return total + (product ? product.price * cart[id] : 0);
+      }, 0)
+      .toFixed(2);
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-end">
-      <div className="w-96 bg-white p-4 overflow-y-auto">
-        <button className="text-gray-500 hover:text-gray-700" onClick={closeDrawer}>
-          Close
-        </button>
-        <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
-        {Object.keys(cart).length === 0 ? (
-          <p>Your cart is empty</p>
-        ) : (
-          <div>
-            {Object.keys(cart).map((id) => {
+    <div
+      className={`fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity ${
+        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
+      <div
+        className={`fixed top-0 right-0 w-96 h-full bg-white shadow-lg transform transition-transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex items-center justify-between p-4 border-b">
+          <h2 className="text-lg font-bold">Your Cart ({totalItems})</h2>
+          <button onClick={closeDrawer}>
+            <CrossIcon className="w-6 h-6 text-gray-600" />
+          </button>
+        </div>
+        <div className="p-4 space-y-4">
+          {Object.keys(cart).length > 0 ? (
+            Object.keys(cart).map((id) => {
               const product = products.find((item) => item.id === parseInt(id));
+              if (!product) {
+                console.error(`Product with id ${id} not found`);
+                return null;
+              }
               return (
-                <div key={id} className="flex justify-between items-center mb-4">
-                  <img src={product.image} alt={product.title} className="w-16 h-16 object-cover" />
-                  <div className="flex-1 ml-4">
-                    <h3 className="text-lg font-semibold">{product.title}</h3>
-                    <p className="text-gray-600">${product.price.toFixed(2)}</p>
-                    <div className="flex items-center space-x-2 mt-2">
-                      <div className="w-[120px] h-[40px] p-[0.5rem] bg-sky-50 rounded-[20px] border-2 border-teal-600 text-stone-900 text-lg font-semibold font-Poppins flex items-center justify-center">
-                        <button onClick={() => decrementQuantity(id)} className="text-stone-900 text-lg font-semibold" style={{ borderRadius: 'inherit', paddingRight: '1.2 rem' }}>
-                          - {/* padding to the right for a gap between - and number */}
-                        </button>
-                        <span>{cart[id]}</span>
-                        <button onClick={() => incrementQuantity(id)} className="text-stone-900 text-lg font-semibold" style={{ borderRadius: 'inherit', paddingLeft: '1.2 rem' }}>
-                          + {/* same padding -- but to the left- Not working for some reason! */}
-                        </button>
-                      </div>
+                <div key={id} className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="w-16 h-16 object-cover"
+                    />
+                    <div>
+                      <h3 className="text-sm font-bold">{product.title}</h3>
+                      <p className="text-sm text-gray-600">
+                        ${product.price.toFixed(2)}
+                      </p>
                     </div>
                   </div>
-                  <p className="font-bold">${(product.price * cart[id]).toFixed(2)}</p>
+                  <div className="flex items-center space-x-2">
+                    <button
+                      onClick={() => decrementQuantity(id)}
+                      className="text-gray-600"
+                    >
+                      -
+                    </button>
+                    <span>{cart[id]}</span>
+                    <button
+                      onClick={() => incrementQuantity(id)}
+                      className="text-gray-600"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               );
-            })}
-            <div className="border-t pt-4 mt-4">
-              <h3 className="text-xl font-bold">Total: ${getTotalPrice()}</h3>
-              <button className="mt-4 bg-teal-600 text-white px-9 py-2 rounded" onClick={goToCheckout}>
-                Checkout
-              </button>
-            </div>
+            })
+          ) : (
+            <p className="text-center text-gray-600">Your cart is empty</p>
+          )}
+        </div>
+        <div className="p-4 border-t">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-lg font-bold">Total:</span>
+            <span className="text-lg font-bold">${getTotalPrice()}</span>
           </div>
-        )}
+          <button
+            onClick={goToCheckout}
+            className="w-full bg-teal-600 text-white py-2 rounded-lg"
+          >
+            Checkout
+          </button>
+        </div>
       </div>
     </div>
   );

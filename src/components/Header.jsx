@@ -3,14 +3,32 @@ import { Link, useLocation } from "react-router-dom";
 import CartIcon from "./MenuCartIcon";
 import MenuIcon from "./MenuMenuIcon";
 import CrossIcon from "./MenuCrossIcon";
+import CartDrawer from "./ShoppingFlow/CartDrawer";
+import { useShoppingCart } from "./context/CartContext"; // Assuming you have a CartContext
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false); // State for cart drawer
   const location = useLocation();
   const currentPath = location.pathname;
+  const {
+    cart = {},
+    products,
+    incrementQuantity,
+    decrementQuantity,
+  } = useShoppingCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleCartDrawer = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  const getTotalItems = () => {
+    if (!cart) return 0; // Ensure cart is defined
+    return Object.values(cart).reduce((total, quantity) => total + quantity, 0);
   };
 
   return (
@@ -58,10 +76,15 @@ const Header = () => {
         </nav>
 
         {/* Icons */}
-        <div className="flex items-center space-x-4">
-          <Link to="/cart">
+        <div className="flex items-center space-x-4 relative">
+          <button onClick={toggleCartDrawer} className="relative">
             <CartIcon />
-          </Link>
+            {getTotalItems() > 0 && (
+              <div className="absolute -top-2 -right-2 bg-teal-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                {getTotalItems()}
+              </div>
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -107,6 +130,18 @@ const Header = () => {
           </Link>
         </nav>
       </div>
+
+      {/* Cart Drawer */}
+      <CartDrawer
+        isOpen={isCartOpen}
+        closeDrawer={toggleCartDrawer}
+        cart={cart}
+        products={products}
+        incrementQuantity={incrementQuantity}
+        decrementQuantity={decrementQuantity}
+        goToCheckout={() => console.log("Go to checkout")}
+        totalItems={getTotalItems()} // Pass total items count to CartDrawer
+      />
     </header>
   );
 };

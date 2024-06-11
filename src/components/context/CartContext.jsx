@@ -1,56 +1,54 @@
-import React, { createContext, useState, useContext } from "react";
-import { ShoppingCart } from "../ShoppingFlow/ShoppingCart";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import React, { createContext, useContext, useState } from "react";
 
 const CartContext = createContext();
 
-export function useShoppingCart() {
-  return useContext(CartContext);
-}
+export const ShoppingCartProvider = ({ children }) => {
+  const [cart, setCart] = useState({});
+  const [products, setProducts] = useState([]); // Ensure products are initialized
 
-export function ShoppingCartProvider({ children }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useLocalStorage("shopping-cart", []);
+  const addToCart = (id) => {
+    setCart((prevCart) => ({
+      ...prevCart,
+      [id]: (prevCart[id] || 0) + 1,
+    }));
+  };
 
-  const openCart = () => setIsOpen(true);
-  const closeCart = () => setIsOpen(false);
+  const incrementQuantity = (id) => {
+    setCart((prevCart) => ({
+      ...prevCart,
+      [id]: prevCart[id] + 1,
+    }));
+  };
 
-  const getItemQuantity = (id) => cartItems.find((item) => item.id === id)?.quantity || 0;
-
-  const increaseCartQuantity = (id) => {
-    setCartItems((currItems) => {
-      if (!currItems.find((item) => item.id === id)) {
-        return [...currItems, { id, quantity: 1 }];
-      } else {
-        return currItems.map((item) => item.id === id ? { ...item, quantity: item.quantity + 1 } : item);
+  const decrementQuantity = (id) => {
+    setCart((prevCart) => {
+      if (prevCart[id] === 1) {
+        const { [id]: _, ...rest } = prevCart;
+        return rest;
       }
+      return {
+        ...prevCart,
+        [id]: prevCart[id] - 1,
+      };
     });
   };
 
-  const decreaseCartQuantity = (id) => {
-    setCartItems((currItems) =>
-      currItems.map((item) => item.id === id ? { ...item, quantity: item.quantity - 1 } : item)
-        .filter((item) => item.quantity > 0)
-    );
-  };
-
-  const removeFromCart = (id) => setCartItems((currItems) => currItems.filter((item) => item.id !== id));
-
-  const value = {
-    openCart,
-    closeCart,
-    getItemQuantity,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-    removeFromCart,
-    cartItems,
-    cartQuantity: cartItems.reduce((quantity, item) => item.quantity + quantity, 0),
-  };
-
   return (
-    <CartContext.Provider value={value}>
+    <CartContext.Provider
+      value={{
+        cart,
+        products,
+        addToCart,
+        incrementQuantity,
+        decrementQuantity,
+        setProducts,
+      }}
+    >
       {children}
-      <ShoppingCart isOpen={isOpen} />
     </CartContext.Provider>
   );
-}
+};
+
+export const useShoppingCart = () => {
+  return useContext(CartContext);
+};

@@ -1,7 +1,7 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
 
-const CartIcon = () => {
+const MenuCartIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,4 +20,4 @@ const CartIcon = () => {
   );
 };
 
-export default CartIcon;
+export default MenuCartIcon;

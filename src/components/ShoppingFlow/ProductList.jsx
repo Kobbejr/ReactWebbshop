@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import StoreItem from "./StoreItem";
 import CartDrawer from "./CartDrawer";
 import fetchData from "../../fetch/fetchData";
+import { useShoppingCart } from "../context/CartContext";
 
-const ProductList = ({ products }) => { // Destructure products from props
-  const [cart, setCart] = useState({});
+const ProductList = ({ products }) => {
+  const { cart, setCart, incrementQuantity, decrementQuantity, addToCart } =
+    useShoppingCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
@@ -16,33 +18,6 @@ const ProductList = ({ products }) => { // Destructure products from props
         console.error("Error fetching data:", error);
       });
   }, []);
-
-  const addToCart = (id) => {
-    setCart((prevCart) => ({
-      ...prevCart,
-      [id]: (prevCart[id] || 0) + 1,
-    }));
-  };
-
-  const incrementQuantity = (id) => {
-    setCart((prevCart) => ({
-      ...prevCart,
-      [id]: prevCart[id] + 1,
-    }));
-  };
-
-  const decrementQuantity = (id) => {
-    setCart((prevCart) => {
-      if (prevCart[id] === 1) {
-        const { [id]: _, ...rest } = prevCart;
-        return rest;
-      }
-      return {
-        ...prevCart,
-        [id]: prevCart[id] - 1,
-      };
-    });
-  };
 
   const toggleCartDrawer = () => {
     setIsCartOpen(!isCartOpen);
@@ -70,15 +45,15 @@ const ProductList = ({ products }) => { // Destructure products from props
             />
           ))}
         </div>
-        {isCartOpen && (
-          <CartDrawer
-            cart={cart}
-            products={products}
-            incrementQuantity={incrementQuantity}
-            decrementQuantity={decrementQuantity}
-            closeDrawer={toggleCartDrawer}
-          />
-        )}
+        <CartDrawer
+          isOpen={isCartOpen}
+          closeDrawer={toggleCartDrawer}
+          cart={cart}
+          products={products}
+          incrementQuantity={incrementQuantity}
+          decrementQuantity={decrementQuantity}
+          totalItems={getTotalItems()}
+        />
       </div>
     </div>
   );
