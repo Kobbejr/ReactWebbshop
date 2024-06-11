@@ -27,7 +27,7 @@ export default function Landingpage() {
               <p className="mt-8">
                 <a
                   href="/products"
-                  className="inline-block rounded bg-teal-500 px-8 py-3 text-center font-medium text-white hover:bg-teal-400 shadow-inner-custom"
+                  className="inline-block rounded bg-teal-500 px-8 py-3 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom"
                 >
                   See the products
                 </a>

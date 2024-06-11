@@ -23,7 +23,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-sky-100">
       {/* Pass fishProducts as props to ProductList component */}
       <ProductList 
       products={fishProducts} />
