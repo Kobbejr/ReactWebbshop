@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import StoreItem from "./StoreItem";
 import CartDrawer from "./CartDrawer";
-import Navbar from "../navTest";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -52,7 +51,10 @@ const ProductList = () => {
 
   return (
     <div>
-      <Navbar totalItems={getTotalItems()} toggleCartDrawer={toggleCartDrawer} />
+      <Navbar
+        totalItems={getTotalItems()}
+        toggleCartDrawer={toggleCartDrawer}
+      />
       <div className="container mx-auto py-8 px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {products.map((item) => (
