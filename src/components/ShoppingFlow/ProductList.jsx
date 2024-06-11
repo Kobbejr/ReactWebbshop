@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import StoreItem from "./StoreItem";
 import CartDrawer from "./CartDrawer";
+import fetchData from "../../fetch/fetchData";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -8,10 +9,13 @@ const ProductList = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error fetching data:", error));
+    fetchData()
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, []);
 
   const addToCart = (id) => {
@@ -51,10 +55,6 @@ const ProductList = () => {
 
   return (
     <div>
-      {/* <Navbar
-        totalItems={getTotalItems()}
-        toggleCartDrawer={toggleCartDrawer}
-      /> */}
       <div className="container mx-auto py-8 px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {products.map((item) => (
@@ -77,10 +77,19 @@ const ProductList = () => {
             products={products}
             incrementQuantity={incrementQuantity}
             decrementQuantity={decrementQuantity}
-            closeDrawer={toggleCartDrawer}
+            quantity={cart[item.id] || 0}
           />
-        )}
+        ))}
       </div>
+      {isCartOpen && (
+        <CartDrawer
+          cart={cart}
+          products={products}
+          incrementQuantity={incrementQuantity}
+          decrementQuantity={decrementQuantity}
+          closeDrawer={toggleCartDrawer}
+        />
+      )}
     </div>
   );
 };
