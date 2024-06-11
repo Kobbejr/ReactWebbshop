@@ -3,15 +3,14 @@ import StoreItem from "./StoreItem";
 import CartDrawer from "./CartDrawer";
 import fetchData from "../../fetch/fetchData";
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
+const ProductList = ({ products }) => { // Destructure products from props
   const [cart, setCart] = useState({});
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     fetchData()
       .then((data) => {
-        setProducts(data);
+        // Fetching data is now handled by the parent component, so no need to fetch it here
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
