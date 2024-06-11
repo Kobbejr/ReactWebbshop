@@ -10,6 +10,7 @@ import Header from "./components/Header";
 // Pages
 import Landingpage from "./pages/Landingpage";
 import Products from "./pages/Products";
+import ProductPage from "./pages/ProductPage";
 
 const Cart = () => <h2>Cart Curtain Slide-in</h2>;
 
