@@ -3,3 +3,19 @@
   margin: 0 auto;
   text-align: center;
 }
+
+@font-face {
+  font-family: 'My-font';
+  src: local('Findet Nemo'),
+       url("./assets/Findet%20Nemo.ttf") format("truetype");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+h1 {
+  font-family: 'My-font';
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+}
