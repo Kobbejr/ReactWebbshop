@@ -24,7 +24,7 @@ const CartDrawer = ({
     <div
       className={`fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity ${
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      } z-50`} // Added z-50 class here
     >
       <div
         className={`fixed top-0 right-0 w-96 h-full bg-white shadow-lg transform transition-transform ${
