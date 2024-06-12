@@ -6,7 +6,7 @@ const fetchData = async () => {
     const apiProducts = await response.json();
     const newFishEntries = generateFishEntries();
     const combinedProducts = [...apiProducts, ...newFishEntries];
-    console.log("Combined Products:", combinedProducts);
+    // console.log("Combined Products:", combinedProducts);
     return combinedProducts;
   } catch (error) {
     console.error("Error fetching or processing data:", error);

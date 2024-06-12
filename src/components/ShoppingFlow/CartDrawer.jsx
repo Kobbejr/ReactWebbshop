@@ -1,5 +1,5 @@
 import React from "react";
-import CrossIcon from "../MenuCrossIcon"; // Import the cross icon
+import CrossIcon from "../MenuCrossIcon";
 
 const CartDrawer = ({
   isOpen,
@@ -42,7 +42,7 @@ const CartDrawer = ({
             Object.keys(cart).map((id) => {
               const product = products.find((item) => item.id === parseInt(id));
               if (!product) {
-                console.error(`Product with id ${id} not found`);
+                // console.error(`Product with id ${id} not found`);
                 return null;
               }
               return (

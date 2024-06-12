@@ -1,8 +1,8 @@
 import React from "react";
 import { useShoppingCart } from "../context/CartContext";
-import { Currency } from "./Currency";
+import Currency from "./Currency";
 
-export function CartItem({ product, quantity }) {
+const CartItem = ({ product, quantity }) => {
   // Receive product object directly
   const { removeFromCart } = useShoppingCart();
 
@@ -35,4 +35,6 @@ export function CartItem({ product, quantity }) {
       </button>
     </div>
   );
-}
+};
+
+export default CartItem;
