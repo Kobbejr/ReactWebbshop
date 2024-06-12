@@ -4,7 +4,7 @@ const CartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
   const [cart, setCart] = useState({});
-  const [products, setProducts] = useState([]); // Ensure products are initialized
+  const [products, setProducts] = useState([]);
 
   const addToCart = (id) => {
     setCart((prevCart) => ({
@@ -33,6 +33,13 @@ export const ShoppingCartProvider = ({ children }) => {
     });
   };
 
+  const removeFromCart = (id) => {
+    setCart((prevCart) => {
+      const { [id]: _, ...rest } = prevCart;
+      return rest;
+    });
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -42,6 +49,7 @@ export const ShoppingCartProvider = ({ children }) => {
         incrementQuantity,
         decrementQuantity,
         setProducts,
+        removeFromCart,
       }}
     >
       {children}

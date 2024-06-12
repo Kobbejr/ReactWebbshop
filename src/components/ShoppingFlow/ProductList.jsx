@@ -5,19 +5,19 @@ import fetchData from "../../fetch/fetchData";
 import { useShoppingCart } from "../context/CartContext";
 
 const ProductList = ({ products }) => {
-  const { cart, setCart, incrementQuantity, decrementQuantity, addToCart } =
+  const { cart, setProducts, incrementQuantity, decrementQuantity, addToCart } =
     useShoppingCart();
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     fetchData()
       .then((data) => {
-        // Fetching data is now handled by the parent component, so no need to fetch it here
+        setProducts(data); // Set products in the context
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [setProducts]);
 
   const toggleCartDrawer = () => {
     setIsCartOpen(!isCartOpen);
