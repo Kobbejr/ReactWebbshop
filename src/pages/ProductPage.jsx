@@ -7,7 +7,8 @@ import Header from "../components/Header";
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const { addToCart, incrementQuantity, decrementQuantity, getItemQuantity } = useShoppingCart();
+  const { addToCart, incrementQuantity, decrementQuantity, getItemQuantity } =
+    useShoppingCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -28,7 +29,11 @@ const ProductPage = () => {
       <Header />
       <div className="container mx-auto py-8 px-4">
         <div className="flex flex-col md:flex-row">
-          <img src={product.image} alt={product.title} className="w-full md:w-1/2 object-cover mb-4 md:mb-0" />
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-full md:w-1/2 object-cover mb-4 md:mb-0"
+          />
           <div className="md:ml-4">
             <h2 className="text-2xl font-bold mb-4">{product.title}</h2>
             <p className="text-gray-700 mb-4">{product.description}</p>
@@ -42,7 +47,9 @@ const ProductPage = () => {
                   >
                     -
                   </button>
-                  <span className="text-stone-900 text-2xl font-semibold">{quantity}</span>
+                  <span className="text-stone-900 text-2xl font-semibold">
+                    {quantity}
+                  </span>
                   <button
                     onClick={() => incrementQuantity(product.id)}
                     className="text-stone-900 text-2xl font-semibold"
