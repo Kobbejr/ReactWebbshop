@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useState } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const CartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
-  const [cart, setCart] = useState({});
+  const [cart, setCart] = useLocalStorage("shopping-cart", {});
   const [products, setProducts] = useState([]);
 
   const addToCart = (id) => {
