@@ -7,6 +7,7 @@ import fetchData from "./fetch/fetchData";
 import ProductPage from "./pages/ProductPage";
 import OrderConfirmation from "./pages/OrderConfirmation"; // Import OrderConfirmation
 import { ShoppingCartProvider } from "./components/context/CartContext";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -35,6 +36,7 @@ const App = () => {
           />{" "}
           {/* Add Route */}
         </Routes>
+        <Footer />
       </Router>
     </ShoppingCartProvider>
   );
