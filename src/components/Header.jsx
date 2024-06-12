@@ -105,11 +105,11 @@ const Header = () => {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`absolute top-16 right-6 lg:hidden ${
+        className={`absolute top-16 right-6 lg:hidden z-50 ${
           isMenuOpen ? "block" : "hidden"
         }`}
       >
-        <nav className="space-y-1 px-2 w-48 pb-3 pt-2 bg-gray-200 shadow-lg rounded-lg">
+        <nav className="space-y-1 px-2 w-48 pb-3 pt-2 bg-gray-200 z-50 shadow-lg rounded-lg">
           <Link
             to="/"
             className={`block text-gray-600 hover:text-teal-700 p-2 ${

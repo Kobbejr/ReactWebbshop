@@ -1,27 +1,28 @@
-import React from 'react';
-import ProductList from '../components/ShoppingFlow/ProductList'; 
-import ErrorBoundary from '../components/ErrorBoundary';
-import Fishy from '../assets/Icon-dace.jpg';
-import Hook from '../assets/hook.svg'
+import React from "react";
+import Fishy from "../assets/Icon-dace.jpg";
+import Hook from "../assets/hook.svg";
 
-
-export default function Landingpage() {
+const Landingpage = () => {
   return (
     <div>
       {/* Main container for the hero section */}
       <div className="relative overflow-hidden bg-sky-100">
-      <section className="absolute h-[40vh] w-screen bg-gradient-to-b from-teal-400/30 via-transparent to-transparent"></section>
+        <section className="absolute h-[40vh] w-screen bg-gradient-to-b from-teal-400/30 via-transparent to-transparent"></section>
         {/* Padding for the top and bottom of the hero section */}
         <div className="pb-80 pt-16 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
           {/* Centering content with max-width and horizontal padding */}
           <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             {/* Container for heading and paragraph */}
             <div className="sm:max-w-lg text-left gap-10">
-              <h1 className="text-4xl font-bold tracking-tight text-stone-700 sm:text-6xl">
+              <h1 className="text-4xl tracking-tight text-stone-700 font-logoFont sm:text-6xl">
+                {" "}
+                {/* Apply font-logoFont class here */}
                 TODAY'S FRESH CATCH IS HERE!
               </h1>
               <p className="mt-12 text-xl font-medium text-stone-700">
-                Our boats have just returned with the freshest seafood from the ocean. From plump scallops to mouthwatering fish, today's catch promises the highest quality and unbeatable flavor.
+                Our boats have just returned with the freshest seafood from the
+                ocean. From plump scallops to mouthwatering fish, today's catch
+                promises the highest quality and unbeatable flavor.
               </p>
               {/* Increase margin-bottom for the paragraph */}
               <p className="mt-8">
@@ -33,9 +34,10 @@ export default function Landingpage() {
                 </a>
               </p>
             </div>
-            <img 
+            <img
               src={Hook}
-              className='absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-3' />
+              className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-3"
+            />
             <div>
               {/* Container for decorative image grid */}
               <div className="mt-10">
@@ -51,16 +53,16 @@ export default function Landingpage() {
                       {/* First column of images */}
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-4 lg:gap-y-4">
                         <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                        <img
+                          <img
                             src={Fishy}
-                            style={{ width: '11rem', height: 'auto' }}
+                            style={{ width: "11rem", height: "auto" }}
                             className="object-cover object-center"
                           />
                         </div>
                         <div className="h-64 w-44 rounded-lg">
                           <img
                             src={Fishy}
-                            style={{ width: '11rem', height: 'auto' }}
+                            style={{ width: "11rem", height: "auto" }}
                             className="object-cover object-center"
                           />
                         </div>
@@ -68,42 +70,42 @@ export default function Landingpage() {
                       {/* Second column of images */}
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                           <img
+                          <img
                             src={Fishy}
-                            style={{ width: '11rem', height: 'auto' }}
+                            style={{ width: "11rem", height: "auto" }}
                             className="object-cover object-center"
-                            />
+                          />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                            <img
+                          <img
                             src={Fishy}
-                            style={{ width: '11rem', height: 'auto' }}
+                            style={{ width: "11rem", height: "auto" }}
                             className="object-cover object-center"
-                            />
+                          />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                           <img
+                          <img
                             src={Fishy}
-                            style={{ width: '11rem', height: 'auto' }}
+                            style={{ width: "11rem", height: "auto" }}
                             className="object-cover object-center"
-                           />
+                          />
                         </div>
                       </div>
                       {/* Third column of images */}
                       <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
-                           <img
+                          <img
                             src={Fishy}
-                            style={{ width: '11rem', height: 'auto' }}
+                            style={{ width: "11rem", height: "auto" }}
                             className="object-cover object-center"
-                            />
+                          />
                         </div>
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
-                          src={Fishy}
-                          style={{ width: '11rem', height: 'auto' }}
-                          className="object-cover object-center"
-                        />
+                            src={Fishy}
+                            style={{ width: "11rem", height: "auto" }}
+                            className="object-cover object-center"
+                          />
                         </div>
                       </div>
                     </div>
@@ -116,4 +118,6 @@ export default function Landingpage() {
       </div>
     </div>
   );
-}
+};
+
+export default Landingpage;

@@ -1,11 +1,32 @@
-import React, { createContext, useContext, useState } from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+// CartContext.jsx
+
+import React, { createContext, useContext, useState, useEffect } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
+import fetchData from "../../fetch/fetchData"; // Import the function to fetch product data
 
 const CartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
   const [cart, setCart] = useLocalStorage("shopping-cart", {});
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
+
+  useEffect(() => {
+    fetchData()
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false); // Mark loading as complete
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setIsLoading(false); // Mark loading as complete even if there's an error
+      });
+  }, [setProducts]);
+
+  // Use cart and products only when loading is complete
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   const addToCart = (id) => {
     setCart((prevCart) => ({

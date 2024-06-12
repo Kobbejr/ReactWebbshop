@@ -4,10 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'logoFont': ['Findet Nemo']
-      }
+        logoFont: ["Findet Nemo"],
+      },
     },
   },
   plugins: [],
-  
 };

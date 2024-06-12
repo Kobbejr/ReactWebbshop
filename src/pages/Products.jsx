@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../fetch/fetchData";
-import ProductList from '../components/ShoppingFlow/ProductList.jsx';
-import Pagination from "../components/ShoppingFlow/Pagination.jsx";
+
+import ProductList from "../components/ShoppingFlow/ProductList.jsx";
+
 
 const Products = () => {
   const [fishProducts, setFishProducts] = useState([]);
@@ -17,7 +18,7 @@ const Products = () => {
         // Set fishProducts state
         setFishProducts(filteredProducts);
         // Console log filtered products
-        console.log("Fish Products:", filteredProducts);
+        //console.log("Fish Products:", filteredProducts);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -29,6 +30,9 @@ const Products = () => {
 
   return (
     <div className="bg-sky-100">
+
+      {/* Pass fishProducts as props to ProductList component */}
+      <ProductList products={fishProducts} />
       <div className="filter-buttons mx-auto py-16 flex justify-between px-4">
         <div className="Filter-card" onClick={() => setFilter('Ocean')}>
           <div className="card-content bg-gradient-to-t from-teal-600 to-transparent">
@@ -69,6 +73,7 @@ const Products = () => {
       </div>
       {/* Pass filteredProducts as props to ProductList component */}
       <ProductList products={filteredProducts} />
+
     </div>
   );
   
