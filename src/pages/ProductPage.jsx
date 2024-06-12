@@ -1,111 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useShoppingCart } from "../components/context/CartContext";
-import Currency from "../components/ShoppingFlow/Currency";
-import Header from "../components/Header";
 import fetchData from "../fetch/fetchData";
 
-// Define Products component to fetch and filter products
-const SingleProduct = ({ children }) => {
-  const [fishProducts, setFishProducts] = useState([]);
+const ProductPage = () => {
+  const { id } = useParams(); // Get the product ID from the URL params
+  const [product, setProduct] = useState(null); // State to store the product
 
   useEffect(() => {
+    // Fetch the product details based on the ID
     fetchData()
-      .then((combinedProducts) => {
-        // Filter products with category "Fish"
-        const filteredProducts = combinedProducts.filter(
-          (product) => product.category === "Fish"
-        );
-        // Set fishProducts state
-        setFishProducts(filteredProducts);
-        console.log("Fish Products:", filteredProducts);
+      .then((products) => {
+        const foundProduct = products.find((item) => item.id === parseInt(id));
+        setProduct(foundProduct); // Set the product state
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching product:", error);
       });
-  }, []);
+  }, [id]); // Fetch data whenever the ID changes
 
-  // Pass filtered products as children to render in ProductPage
-  return <>{children(fishProducts)}</>;
-};
-
-const ProductPage = ({ fishProducts }) => {
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const { addToCart, incrementQuantity, decrementQuantity, getItemQuantity } =
-    useShoppingCart();
-
-  useEffect(() => {
-    // Find the product with the given ID from the filtered product list
-    const productById = fishProducts.find(product => product.id.toString() === id);
-    if (!productById) {
-      console.error(`Product with ID ${id} not found`);
-      return;
-    }
-    setProduct(productById);
-    console.log("Product data:", productById); // Log product data for debugging
-  }, [id, fishProducts]);
-
-  if (!product) return <div>Loading...</div>;
-
-
- const quantity = getItemQuantity(product.id);
-
+  // If product is not found, display a loading message or handle the case
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div>
-      <Header />
-      <div className="container mx-auto py-8 px-4">
-        <div className="flex flex-col md:flex-row">
-          <img
-            src={product.image}
-            alt={product.title}
-            className="w-full md:w-1/2 object-cover mb-4 md:mb-0"
-          />
-          <div className="md:ml-4">
-            <h2 className="text-2xl font-bold mb-4">{product.title}</h2>
-            <p className="text-gray-700 mb-4">{product.description}</p>
-            <p className="text-gray-700 mb-4">{Currency(product.price)}</p>
-            <div className="mt-4">
-              {quantity > 0 ? (
-                <div className="w-[150px] h-[50px] p-2.5 bg-sky-50 rounded-[30px] border-2 border-teal-600 justify-center items-center gap-6 inline-flex">
-                  <button
-                    onClick={() => decrementQuantity(product.id)}
-                    className="text-stone-900 text-2xl font-semibold"
-                  >
-                    -
-                  </button>
-                  <span className="text-stone-900 text-2xl font-semibold">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() => incrementQuantity(product.id)}
-                    className="text-stone-900 text-2xl font-semibold"
-                  >
-                    +
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => addToCart(product.id)}
-                  className="bg-teal-600 text-white px-4 py-2 bottom-0 w-full rounded-[5px] shadow-inner justify-center items-center gap-3 inline-flex"
-                >
-                  Add to Cart
-                </button>
-              )}
-            </div>
-            <button className="mt-4 bg-teal-600 text-white px-9 py-2 rounded">
-              Checkout
-            </button>
-          </div>
+    <div className="container mx-auto py-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div>
+          <img src={product.image} alt={product.title} className="w-full" />
+        </div>
+        <div>
+          <h2 className="text-2xl font-bold">{product.title}</h2>
+          <p className="text-gray-600">${product.price.toFixed(2)}</p>
+          <p className="mt-4">{product.description}</p>
+          {/* Add more details about the product as needed */}
         </div>
       </div>
     </div>
   );
 };
 
-export default () => (
-  <SingleProduct>
-    {(fishProducts) => <ProductPage fishProducts={fishProducts} />}
-  </SingleProduct>
-);
+export default ProductPage;

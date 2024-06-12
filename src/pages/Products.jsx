@@ -30,9 +30,6 @@ const Products = () => {
 
   return (
     <div className="bg-sky-100">
-
-      {/* Pass fishProducts as props to ProductList component */}
-      <ProductList products={fishProducts} />
       <div className="filter-buttons mx-auto py-16 flex justify-between px-4">
         <div className="filter-card bg-gradient-to-t p-4 rounded-md w-50 from-teal-600 to-transparent"  onClick={() => setFilter('Ocean')}>
             <img
