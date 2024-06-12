@@ -4,7 +4,7 @@ import Fishy from '../assets/Icon-dace.jpg';
 import Hook from '../assets/hook.svg';
 
 export default function Checkoutpage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   const checkoutHandler = () => {
     setIsModalOpen(!isModalOpen);
@@ -12,16 +12,8 @@ export default function Checkoutpage() {
 
   return (
     <>
-      <div className="flex items-center justify-center py-8">
-        {/* more free and premium Tailwind CSS components at https://tailwinduikit.com/ */}
-        <button onClick={checkoutHandler} className="py-2 px-10 rounded bg-indigo-600 hover:bg-indigo-700 text-white">
-          Open Modal
-        </button>
-      </div>
-
       {isModalOpen && (
         <div className="w-full h-full bg-black dark:bg-gray-900 bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0" id="chec-div">
-          {/* more free and premium Tailwind CSS components at https://tailwinduikit.com/ */}
           <div className="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700" id="checkout">
             <div className="flex items-end lg:flex-row flex-col justify-end" id="cart">
               <div className="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-y-hidden overflow-x-hidden lg:h-screen h-auto" id="scroll">
@@ -142,7 +134,15 @@ export default function Checkoutpage() {
                       <p className="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
                       <p className="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">$5,635</p>
                     </div>
-                    <button className="text-base leading-none w-full py-5 bg-gray-800 dark:bg-white dark:text-gray-800 text-white border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">Checkout</button>
+                    <a
+          
+          href="/checkoutPage"
+          className="inline-block rounded bg-teal-500 px-8 py-3 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom"
+        >
+
+      
+          Checkout
+        </a>
                   </div>
                 </div>
               </div>
