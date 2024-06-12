@@ -30,8 +30,7 @@ const Products = () => {
   return (
     <div className="bg-sky-100">
       <div className="filter-buttons mx-auto py-16 flex justify-between px-4">
-        <div className="Filter-card" onClick={() => setFilter('Ocean')}>
-          <div className="card-content bg-gradient-to-t from-teal-600 to-transparent">
+        <div className="filter-card bg-gradient-to-t p-4 rounded-md w-50 from-teal-600 to-transparent"  onClick={() => setFilter('Ocean')}>
             <img
               src={"https://lh3.googleusercontent.com/pw/AP1GczNEjf4Ix4ezZ1TTFzbN8OrtxXBLrEzK8pdS2IeON80uxHgwG6eNG46ffqPeTrukcF5sfco-CXYc2FWazSrXiM2X6osQz2GV64iz2zpcPsfGDE83og=w2400"}
               alt="Ocean fish"
@@ -41,9 +40,7 @@ const Products = () => {
               Ocean fish
             </h2>
           </div>
-        </div>
-        <div className="Filter-card" onClick={() => setFilter('River')}>
-          <div className="card-content bg-gradient-to-t from-teal-600 to-transparent">
+        <div className="filter-card bg-gradient-to-t p-4 rounded-md w-50 from-teal-600 to-transparent" onClick={() => setFilter('River')}>
             <img
               src={"https://lh3.googleusercontent.com/pw/AP1GczOjW1Li4BYx6SHKISylC0FKYVl5CHbC0Y6vSZs13A7AVhCvvw1H6kaDXYnb8Lmv6u-_1fzqcTIVPVyXIPKMJRi0CofGL12VrvDTzNeYKhw0YYIlQA=w2400"}
               alt="River fish"
@@ -52,10 +49,8 @@ const Products = () => {
             <h2 className="font-poppins text-white text-center text-2xl font-bold">
               River fish
             </h2>
-          </div>
         </div>
-        <div className="Filter-card" onClick={() => setFilter('Pond')}>
-          <div className="card-content bg-gradient-to-t from-teal-600 to-transparent">
+        <div className="filter-card bg-gradient-to-t p-4 rounded-md w-50 from-teal-600 to-transparent"  onClick={() => setFilter('Pond')}>
             <img
               src={"https://lh3.googleusercontent.com/pw/AP1GczNL0JGQmfXiOYW4QqUSIYAP02BeY6euNbJ---9m7ih5K3MlKpY36hvbNHmV_bIOeZKii9z9SQjL37i3k3wnL_97lfKgNUz7I1wXHm6OqBtOE2N78g=s256-p-k"}
               alt="Pond fish"
@@ -64,7 +59,6 @@ const Products = () => {
             <h2 className="font-poppins text-white text-center text-2xl font-bold">
               Pond fish
             </h2>
-          </div>
         </div>
       </div>
       {/* Pass filteredProducts as props to ProductList component */}
