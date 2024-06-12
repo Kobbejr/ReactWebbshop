@@ -1,7 +1,7 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
 
-const MenuIcon = () => {
+const MenuMenuIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -20,4 +20,4 @@ const MenuIcon = () => {
   );
 };
 
-export default MenuIcon;
+export default MenuMenuIcon;

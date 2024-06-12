@@ -2,7 +2,8 @@ import React from "react";
 import { useShoppingCart } from "../context/CartContext";
 import { Currency } from "./Currency";
 
-export function CartItem({ product, quantity }) { // Receive product object directly
+export function CartItem({ product, quantity }) {
+  // Receive product object directly
   const { removeFromCart } = useShoppingCart();
 
   return (

@@ -1,16 +1,15 @@
+// App.jsx
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Landingpage from "./pages/Landingpage";
 import Products from "./pages/Products";
-
 import fetchData from "./fetch/fetchData";
-
 import ProductPage from "./pages/ProductPage";
+import { ShoppingCartProvider } from "./components/context/CartContext"; // Import the provider
+import CartDrawer from "./components/ShoppingFlow/CartDrawer"; // Import the CartDrawer
 
-const Cart = () => <h2>Cart Curtain Slide-in</h2>;
-
-function App() {
+const App = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -24,16 +23,18 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Landingpage />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductPage />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </Router>
+    <ShoppingCartProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Landingpage />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<CartDrawer />} />
+        </Routes>
+      </Router>
+    </ShoppingCartProvider>
   );
-}
+};
 
 export default App;
