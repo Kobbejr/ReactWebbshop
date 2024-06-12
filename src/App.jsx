@@ -5,7 +5,8 @@ import Landingpage from "./pages/Landingpage";
 import Products from "./pages/Products";
 import fetchData from "./fetch/fetchData";
 import ProductPage from "./pages/ProductPage";
-import { ShoppingCartProvider } from "./components/context/CartContext"; 
+import OrderConfirmation from "./pages/OrderConfirmation"; // Import OrderConfirmation
+import { ShoppingCartProvider } from "./components/context/CartContext";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -28,6 +29,11 @@ const App = () => {
           <Route path="/" element={<Landingpage />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductPage />} />
+          <Route
+            path="/order-confirmation"
+            element={<OrderConfirmation />}
+          />{" "}
+          {/* Add Route */}
         </Routes>
       </Router>
     </ShoppingCartProvider>
