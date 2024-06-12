@@ -3,25 +3,53 @@ import { useParams } from "react-router-dom";
 import { useShoppingCart } from "../components/context/CartContext";
 import { Currency } from "../components/ShoppingFlow/Currency";
 import Header from "../components/Header";
+import fetchData from "../fetch/fetchData";
 
-const ProductPage = () => {
+// Define Products component to fetch and filter products
+const SingleProduct = ({ children }) => {
+  const [fishProducts, setFishProducts] = useState([]);
+
+  useEffect(() => {
+    fetchData()
+      .then((combinedProducts) => {
+        // Filter products with category "Fish"
+        const filteredProducts = combinedProducts.filter(
+          (product) => product.category === "Fish"
+        );
+        // Set fishProducts state
+        setFishProducts(filteredProducts);
+        console.log("Fish Products:", filteredProducts);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  // Pass filtered products as children to render in ProductPage
+  return <>{children(fishProducts)}</>;
+};
+
+const ProductPage = ({ fishProducts }) => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart, incrementQuantity, decrementQuantity, getItemQuantity } = useShoppingCart();
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProduct(data);
-    };
-
-    fetchProduct();
-  }, [id]);
+    // Find the product with the given ID from the filtered product list
+    const productById = fishProducts.find(product => product.id.toString() === id);
+    if (!productById) {
+      console.error(`Product with ID ${id} not found`);
+      return;
+    }
+    setProduct(productById);
+    console.log("Product data:", productById); // Log product data for debugging
+  }, [id, fishProducts]);
 
   if (!product) return <div>Loading...</div>;
 
-  const quantity = getItemQuantity(product.id);
+
+ const quantity = getItemQuantity(product.id);
+
 
   return (
     <div>
@@ -69,4 +97,8 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default () => (
+  <SingleProduct>
+    {(fishProducts) => <ProductPage fishProducts={fishProducts} />}
+  </SingleProduct>
+);
