@@ -26,7 +26,7 @@ const OrderConfirmation = () => {
   const orderNumber = generateOrderNumber();
 
   return (
-    <div className="max-w-full bg-blue-50">
+    <div className="max-w-full pb-8 bg-blue-50">
       <div className="max-w-7xl mx-auto p-4">
         <div className="text-center py-4">
           <h1 className="text-3xl font-bold text-stone-700 mb-2">
@@ -119,7 +119,7 @@ const OrderConfirmation = () => {
                   <span>Shipping:</span> <span>{Currency(8)}</span>
                 </p>
               </div>
-              <p className="flex justify-between font-bold text-stone-700 text-lg">
+              <p className="flex justify-between font-bold text-stone-600 text-lg">
                 <span>Total:</span>{" "}
                 <span>{Currency(parseFloat(getTotalPrice()) + 8)}</span>
               </p>
