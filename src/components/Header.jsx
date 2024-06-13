@@ -4,7 +4,7 @@ import CartIcon from "./MenuCartIcon";
 import MenuIcon from "./MenuMenuIcon";
 import CrossIcon from "./MenuCrossIcon";
 import CartDrawer from "./ShoppingFlow/CartDrawer";
-import { useShoppingCart } from "./context/CartContext"; // Assuming you have a CartContext
+import { useShoppingCart } from "./context/CartContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +16,7 @@ const Header = () => {
     products,
     incrementQuantity,
     decrementQuantity,
+    removeFromCart,
   } = useShoppingCart();
 
   const toggleMenu = () => {
@@ -139,6 +140,7 @@ const Header = () => {
         products={products}
         incrementQuantity={incrementQuantity}
         decrementQuantity={decrementQuantity}
+        removeFromCart={removeFromCart}
         goToCheckout={() => console.log("Go to checkout")}
         totalItems={getTotalItems()} // Pass total items count to CartDrawer
       />

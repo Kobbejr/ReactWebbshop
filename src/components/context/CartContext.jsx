@@ -60,7 +60,7 @@ export const ShoppingCartProvider = ({ children }) => {
       const { [id]: _, ...rest } = prevCart;
       return rest;
     });
-  };
+  };  
 
   return (
     <CartContext.Provider
