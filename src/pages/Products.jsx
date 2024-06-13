@@ -38,8 +38,8 @@ const Products = () => {
           <div
             className={`filter-card relative bg-gradient-to-t p-4 rounded-md w-40 sm:w-48 md:w-56 from-teal-600 to-transparent cursor-pointer ${
               filter === "All"
-                ? "border-2 border-teal-700 opacity-100"
-                : "opacity-50 hover:opacity-100"
+                ? "border-2 border-teal-700 opacity-100 transition-opacity duration-300"
+                : "opacity-50 hover:opacity-100 transition-opacity duration-300"
             }`}
             onClick={() => setFilter("All")}
           >
@@ -57,8 +57,8 @@ const Products = () => {
           <div
             className={`filter-card relative bg-gradient-to-t p-4 rounded-md w-40 sm:w-48 md:w-56 from-teal-600 to-transparent cursor-pointer ${
               filter === "Ocean"
-                ? "border-2 border-teal-700 opacity-100"
-                : "opacity-50 hover:opacity-100"
+                ? "border-2 border-teal-700 opacity-100 transition-opacity duration-300"
+                : "opacity-50 hover:opacity-100 transition-opacity duration-300"
             }`}
             onClick={() => setFilter("Ocean")}
           >
@@ -78,8 +78,8 @@ const Products = () => {
           <div
             className={`filter-card relative bg-gradient-to-t p-4 rounded-md w-40 sm:w-48 md:w-56 from-teal-600 to-transparent cursor-pointer ${
               filter === "River"
-                ? "border-2 border-teal-700 opacity-100"
-                : "opacity-50 hover:opacity-100"
+                ? "border-2 border-teal-700 opacity-100 transition-opacity duration-300"
+                : "opacity-50 hover:opacity-100 transition-opacity duration-300"
             }`}
             onClick={() => setFilter("River")}
           >
@@ -99,8 +99,8 @@ const Products = () => {
           <div
             className={`filter-card relative bg-gradient-to-t p-4 rounded-md w-40 sm:w-48 md:w-56 from-teal-600 to-transparent cursor-pointer ${
               filter === "Pond"
-                ? "border-2 border-teal-700 opacity-100"
-                : "opacity-50 hover:opacity-100"
+                ? "border-2 border-teal-700 opacity-100 transition-opacity duration-300"
+                : "opacity-50 hover:opacity-100 transition-opacity duration-300"
             }`}
             onClick={() => setFilter("Pond")}
           >
