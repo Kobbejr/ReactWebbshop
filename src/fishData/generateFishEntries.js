@@ -286,6 +286,291 @@ const generateFishEntries = () => {
         rate: 4.7,
       },
     },
+    {
+      id: 41,
+      title: "Snapping Turtle",
+      price: 5000,
+      category: "Fish",
+      subcategory: "Pond",
+      description:
+        "I caught a snapping turtle! How can it snap without fingers?",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczMkH7h6EVL7YU5P3Hq-BOzImOzg3uAHv5RMWHFbAxrYcO7NNcy66VlTWu9Cnm3RkFp2G6WXY-N0Xk0QEmN1swgAlcD0ePiMBXE7mPlqnS8q2bOGSlI=w2400",
+      rate: {
+        count: 18,
+        rate: 3.5,
+      },
+    },
+    {
+      id: 42,
+      title: "Soft-shelled Turtle",
+      price: 3750,
+      category: "Fish",
+      subcategory: "River",
+      description:
+        "I caught a soft-shelled turtle! I think it's more sensitive than other turtles.",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczM7br2gSGaNUrKIdmz7aCrvSzjMcg45w4bdq8v_1JxyfS8k18I3K9Re95vAQ5qZ_vAYUkF9XoFC_g4lykZfDLRUXIMIvSTYf9E8QKYnT9ESNNg4mHc=w2400",
+      rate: {
+        count: 12,
+        rate: 4.2,
+      },
+    },
+    {
+      id: 43,
+      title: "Freshwater Crab",
+      price: 1500,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a freshwater crab! Now to find a bathtub for it.",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczNKoXf1lzcM4tOyN_G9kPyvPY88AsqWcYi_Li-kfP9zXTnX6QK_owGZVMwItQ79H6-02Pk5bi1Un4NalEeS3oVUZ2aG7TZRFyFpfrUv8HR0BNuXGKo=w2400",
+      rate: {
+        count: 7,
+        rate: 4.9,
+      },
+    },
+    {
+      id: 44,
+      title: "Pond Smelt",
+      price: 500,
+      category: "Fish",
+      subcategory: "Pond",
+      description: "I caught a pond smelt! Whoever smelt it dealt it!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczPxvHROGp2gGx79PucDph5KkG7sx1pVbGp-x5_G_i3xvfbqzR8Zk0d09mk52D0dqzudkFwp72iX_DUBgD4A-Wpz6R7oqzJdZGVw9_kLZydp2RtnrYw=w2400",
+      rate: {
+        count: 23,
+        rate: 4.7,
+      },
+    },
+    {
+      id: 45,
+      title: "Tadpole",
+      price: 100,
+      category: "Fish",
+      subcategory: "River",
+      description: "I caught a tadpole! It's just a tad small.",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczNzOLK9C21UQNJy1fNVK1x3j3nnrydE-2dLg-wFLM6k7jIcQ0I3SfsfAlmZC4Y4Sg1NpOtlOV9ll9WugidmxlNpjwT-y9ug5seprXCRDN4tRW1nBqI=w2400",
+      rate: {
+        count: 14,
+        rate: 4.3,
+      },
+    },
+    {
+      id: 46,
+      title: "Angelfish",
+      price: 3000,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught an angelfish! That other fish told me to do it!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczN7WpQ9JJm3MdQnD6FD_ZdG9lT6j3IEZ0u_33ayoiLsFvLH0Ekv4TMBBBTc1NHe9Ji8RzCZsnXmZg4wKATeIqFrSujU0C1Kj6HBDtk5UxLv5oV4hHc=w2400",
+      rate: {
+        count: 31,
+        rate: 4.8,
+      },
+    },
+    {
+      id: 47,
+      title: "Rainbowfish",
+      price: 800,
+      category: "Fish",
+      subcategory: "River",
+      description: "I caught a rainbowfish! Where's my pot of goldfish?",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczNpY4gYjQwdshQ3p9pYZBPNLH16FJlMjwvKksNXtj5u-K4E8jwz7CQMNchql37bKL4Eax71PdKDZP6ZfDLRUXIMIvSTYf9E8QKYnT9ESNNg4mHc=w2400",
+      rate: {
+        count: 9,
+        rate: 4.5,
+      },
+    },
+    {
+      id: 48,
+      title: "Goldfish",
+      price: 1300,
+      category: "Fish",
+      subcategory: "Pond",
+      description: "I caught a goldfish! It's worth its weight in fish!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczPaRZjYVbSdz8w4dF-QC43oQIMXjSv59RFtXWZlb34aT-QBmt_v6DJZdYbLnv_zrImFmr64oxaH1eVGa4V9K2yzJfJLsUbdMsKzEkwGxcszyGtXaR8=w2400",
+      rate: {
+        count: 19,
+        rate: 4.6,
+      },
+    },
+    {
+      id: 49,
+      title: "Ocean Sunfish",
+      price: 4000,
+      category: "Fish",
+      subcategory: "Ocean",
+      description:
+        "I caught an ocean sunfish! Good thing I'm wearing ocean sunscreen!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczN5VTbZIRg5e0MgtytlJIcB7U2-IEuZXq0G2wYKp-zL0hnM4z26zZ81CxF30l3Abv5ZjtlpONB6IquJQhnvqmqBPh_kHcQ27vK7bkI7FQ9Dyw9P5BE=w2400",
+      rate: {
+        count: 28,
+        rate: 4.9,
+      },
+    },
+    {
+      id: 50,
+      title: "Sea Butterfly",
+      price: 1000,
+      category: "Fish",
+      subcategory: "Ocean",
+      description:
+        "I caught a sea butterfly! Try not to confuse it for a sea moth!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczN40vMkcLWpyCgIKpEg-nwqSyExmHnFqJz0FLw9U42uNKczAjsWqkRm4Ct_dWhhDSygkA2EKB0oIRakMqq2rxWYMFDdKk09Ayj2t2Phy0cjGIhJiA=w2400",
+      rate: {
+        count: 36,
+        rate: 4.7,
+      },
+    },
+    {
+      id: 51,
+      title: "Seahorse",
+      price: 1100,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a seahorse! But...where's its sea jockey?",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczMo4H6cbFyPhwDe3RcE2XOfEKIDJ9v6MIRfDPWZgrbLYUxDR0uAEYYKwJt4jX3X4Ycjsj3gZssbpbGf3QQrIwbiNiaJk1UEe9BGbsvew1C-32duIU=w2400",
+      rate: {
+        count: 25,
+        rate: 4.6,
+      },
+    },
+    {
+      id: 52,
+      title: "Octopus",
+      price: 1200,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught an octopus! I'm so pumped for this dance party!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczPukCmU-M2YQaStXGrU8PWs5zvDPz9J5kl9FQbnAIiGz5Km8Mfr3sZ0lJqB3wG2eCSNki2C5wTkj7XWhY-U1q2tNRjIrNXdRXfEW2H36qY7Lu6xPA8=w2400",
+      rate: {
+        count: 30,
+        rate: 4.8,
+      },
+    },
+    {
+      id: 53,
+      title: "Sea Urchin",
+      price: 300,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a sea urchin! Wasn't even 'urchin for it!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczMZlK5U49Yy6L3V6eN2CuvvYIfz1kr4o9PzNwrAbC5EC1TrQcBDnV-kNQ8sZx47CF2UWS4yb4lqGpvKjCShNOVQDUBUqEMnTg32QYeNR0RFkn8v_Y=w2400",
+      rate: {
+        count: 17,
+        rate: 4.4,
+      },
+    },
+    {
+      id: 54,
+      title: "Vampire Squid",
+      price: 10000,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a vampire squid! I'd rather it bite others!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczPXw5vU2Rd9ew7lgP_XFVJje_LMYABXghItAa6aFWfYGp8m-Y-WzCj1_7B2mLlB_2zucVWKn-86p1sz2nq0hS6H7GCFmugJiEj0ZYH5rRUhWhtAA2Y=w2400",
+      rate: {
+        count: 21,
+        rate: 4.7,
+      },
+    },
+    {
+      id: 55,
+      title: "Gigas Giant Clam",
+      price: 15000,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a gigas giant clam! It's kind of a big deal!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczM4aSCtLvcS7U4AgNozavcYjeWn01aGgbAlHrktcL1j6aV2S0_jbzJEx70F7glwzfBukLqyjK-Yv_DYqUN-2WZdF1nNFFlFqD7D1-NcsLyaEL_cQnM=w2400",
+      rate: {
+        count: 14,
+        rate: 4.9,
+      },
+    },
+    {
+      id: 56,
+      title: "Moon Jellyfish",
+      price: 600,
+      category: "Fish",
+      subcategory: "Ocean",
+      description:
+        "I caught a moon jellyfish! Now to find a sun peanutbutterfish and a stars marmaladefish!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczPPZ4uKmk2JLXMUMZxS-Z6txxO1fuP-YWrWUZurNlGNz_fi1orGR0hI2e63iDrHznDee4VlK2ICgSdN_N-8mo9ysRqPCuWlMzb2omGG1Ae7rmSjnrKk=w2400",
+      rate: {
+        count: 10,
+        rate: 4.3,
+      },
+    },
+    {
+      id: 57,
+      title: "Sea Anemone",
+      price: 500,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a sea anemone! Mwahahaha! Wait...wrong anemone.",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczN7w2vBCdnpkUxT8BhuXGzHEPb5WgyYvGYDLd7qExqZfU8krJ2kcz17MDOXXw7IJkYg2Ml55CB12ONbI8m_BMUBVUNvMl1aYgAoOa3XWlxzmqKWumw=w2400",
+      rate: {
+        count: 5,
+        rate: 4.1,
+      },
+    },
+    {
+      id: 58,
+      title: "Giant Isopod",
+      price: 12000,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a giant isopod! I hope it's not a giant grouch.",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczP-qA0JQXShxy3xJFfAkkyGZ_ghY_EotibSizk8E3Gyq3-juqCbqzwPODjwYIqgFav6peLL5GvGbkxXbJKGKwF0dw_9V8GJEXo2y2uc2Y7Ry51u6Tc=w2400",
+      rate: {
+        count: 18,
+        rate: 4.6,
+      },
+    },
+    {
+      id: 59,
+      title: "Sea Cucumber",
+      price: 500,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a sea cucumber! It's a bit sassy.",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczNkRvU8oGTX-nn7v1VITir5yvJipCTfExWHoG_1B_zs3gOMbf2NbY2_2HmOYUgqutdPF2WtEvjz0fYAGNz2nLqFQr1PN-e7nGB-EQF48zPFs5f4LdI=w2400",
+      rate: {
+        count: 12,
+        rate: 4.5,
+      },
+    },
+    {
+      id: 60,
+      title: "Pearl Oyster",
+      price: 2800,
+      category: "Fish",
+      subcategory: "Ocean",
+      description: "I caught a pearl oyster! It's a little shellfish!",
+      image:
+        "https://lh3.googleusercontent.com/pw/AP1GczMyhVhjghgW-_lYN8FVwq2Zlhc8Plt6-k7vE98YAVGRm8zcbJZa5u-xvnjH9xZW3JkH5qghPiOYmU8-94XYGyDDaFgQnEovEjSb4t6PsnKX3jccZ0s=w2400",
+      rate: {
+        count: 15,
+        rate: 4.7,
+      },
+    },
   ];
 
   return fishEntries;
