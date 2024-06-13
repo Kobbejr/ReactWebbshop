@@ -94,7 +94,7 @@ const CartDrawer = ({
                         className="w-16 h-16 object-cover"
                         alt={product.title}
                       />
-                      <div>
+                      <div className="text-left">
                         <h3 className="text-sm font-bold">{product.title}</h3>
                         <p className="text-sm text-gray-600">
                           ${product.price.toFixed(2)}
