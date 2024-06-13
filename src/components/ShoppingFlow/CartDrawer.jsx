@@ -64,7 +64,7 @@ const CartDrawer = ({
       {/* Drawer container */}
       <div
         ref={drawerRef}
-        className={`fixed top-0 right-0 w-full max-w-md h-full bg-sky-50 shadow-lg transform transition-transform ${
+        className={`fixed top-0 right-0 w-full max-w-md h-full bg-sky-50 shadow-lg overflow-auto transform transition-transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
