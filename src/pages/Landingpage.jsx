@@ -1,6 +1,7 @@
 import React from "react";
 import Fishy from "../assets/Icon-dace.jpg";
 import Hook from "../assets/hook.svg";
+import '../App.css'
 
 const Landingpage = () => {
   return (
@@ -14,9 +15,7 @@ const Landingpage = () => {
           <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             {/* Container for heading and paragraph */}
             <div className="sm:max-w-lg text-left gap-10">
-              <h1 className="text-4xl tracking-tight text-stone-700 font-logoFont sm:text-6xl">
-                {" "}
-                {/* Apply font-logoFont class here */}
+              <h1 className="text-4xl tracking-tight text-stone-700 sm:text-6xl">
                 TODAY'S FRESH CATCH IS HERE!
               </h1>
               <p className="mt-12 text-xl font-medium text-stone-700">
