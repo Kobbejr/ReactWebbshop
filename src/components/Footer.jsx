@@ -1,16 +1,26 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="p-10 bg-base-200 rounded">
-      <nav className="grid grid-flow-col gap-4">
-        <a>About us</a>
-        <a>Contact</a>
-        <a>Jobs</a>
-        <a>Press kit</a>
+    <footer className="p-10 bg-white text-gray-600 rounded flex flex-col items-center">
+      <div className="text-2xl font-bold mb-6">
+        <Link to="/">
+          <img
+            src="/KappnsCatch-logotype-mobile.svg"
+            alt="Mobile Logo"
+            className="block h-12"
+          />
+        </Link>
+      </div>
+      <nav className="grid grid-flow-col gap-4 mb-8 space-x-8">
+        <a className="text-center">Home</a>
+        <a className="text-center">Products</a>
+        <a className="text-center">Merch</a>
+        <a className="text-center">FAQ</a>
       </nav>
-      <nav>
-        <div className="grid grid-flow-col gap-4">
+      <nav className="">
+        <div className="grid grid-flow-col gap-4 mb-4 space-x-8">
           <a>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,9 +56,6 @@ const Footer = () => {
           </a>
         </div>
       </nav>
-      <aside>
-        <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
-      </aside>
     </footer>
   );
 };
