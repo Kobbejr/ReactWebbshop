@@ -28,10 +28,10 @@ const ProductList = ({ products }) => {
   };
 
   return (
-    <div className="mx-auto px-4 sm:px-0 py-16 flex justify-center">
+    <div className="mx-auto px-1 md:px-4 sm:px-0 py-6 flex justify-center">
       {" "}
       {/* Modified container div */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+      <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 md:gap-10 lg:gap-16">
         {products.map((item) => (
           <StoreItem
             key={item.id}
