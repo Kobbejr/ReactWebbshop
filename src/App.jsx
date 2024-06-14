@@ -8,6 +8,8 @@ import ProductPage from "./pages/ProductPage";
 import OrderConfirmation from "./pages/OrderConfirmation"; // Import OrderConfirmation
 import { ShoppingCartProvider } from "./components/context/CartContext";
 import Footer from "./components/Footer";
+import CartDrawer from "./components/ShoppingFlow/CartDrawer"; // Import the CartDrawer
+import Checkoutpage from "./pages/Checkoutpage";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -35,6 +37,8 @@ const App = () => {
             element={<OrderConfirmation />}
           />{" "}
           {/* Add Route */}
+          <Route path="/cart" element={<CartDrawer />} />
+          <Route path="/checkoutPage" element={<Checkoutpage />} />
         </Routes>
         <Footer />
       </Router>

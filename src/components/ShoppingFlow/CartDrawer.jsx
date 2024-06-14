@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CrossIcon from "../MenuCrossIcon";
 import { FaPlus, FaMinus } from "react-icons/fa6";
@@ -64,7 +64,7 @@ const CartDrawer = ({
       {/* Drawer container */}
       <div
         ref={drawerRef}
-        className={`fixed top-0 right-0 w-full max-w-md h-full bg-sky-50 shadow-lg transform transition-transform ${
+        className={`fixed top-0 right-0 w-full max-w-md h-full bg-sky-50 shadow-lg overflow-auto transform transition-transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -94,7 +94,7 @@ const CartDrawer = ({
                         className="w-16 h-16 object-cover"
                         alt={product.title}
                       />
-                      <div>
+                      <div className="text-left">
                         <h3 className="text-sm font-bold">{product.title}</h3>
                         <p className="text-sm text-gray-600">
                           ${product.price.toFixed(2)}
@@ -143,12 +143,18 @@ const CartDrawer = ({
             <span className="text-lg text-stone-600 font-bold">Subtotal:</span>
             <span className="text-lg text-stone-800 font-bold">${getTotalPrice()}</span>
           </div>
-          <button
-            onClick={goToCheckout}
-            className="w-full bg-teal-600 text-white py-2 rounded-lg"
-          >
-            Checkout
-          </button>
+          <div className="flex items-center justify-center py-8">
+            {/* Button to open checkout modal */}
+            <a
+          
+              href="/checkoutPage"
+              className="inline-block rounded bg-teal-500 px-8 py-3 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom"
+            >
+    
+          
+              Checkout
+            </a>
+          </div>
         </div>
       </div>
     </div>
