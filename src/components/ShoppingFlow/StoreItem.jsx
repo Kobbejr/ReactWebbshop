@@ -13,21 +13,23 @@ const StoreItem = ({
   quantity,
 }) => {
   return (
-    <div className="store-item p-4 rounded-md w-80 bg-sky-50">
+    <div className="store-item p-4 rounded-md bg-sky-50">
       {/* Product link */}
-      <Link to={`/products/${id}`}>
+      <Link to={`/products/${id}`} className="block">
         {/* Product image */}
         <img
           src={imgUrl}
           alt={name}
-          className="w-44 mb-4 mx-auto hover:scale-110 transition-transform"
+          className="w-24 p-0 m-0 md:w-9/12 h-auto md:mb-4 mx-auto hover:scale-110 transition-transform"
         />
         {/* Product details */}
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="font-poppins text-stone-700 text-base font-bold">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
+          <h2 className="font-poppins text-stone-700 text-base font-bold mb-2 sm:mb-0">
             {name}
           </h2>
-          <p className="text-stone-900 text-3xl font-bold">${price}</p>
+          <p className="text-stone-900 text-xl md:text-3xl font-bold sm:pl-3">
+            ${price}
+          </p>
         </div>
       </Link>
       
@@ -35,23 +37,22 @@ const StoreItem = ({
       <div className="mt-4">
         {quantity > 0 ? (
           // If item is already in cart, show quantity controls
-          <div className="w-full flex justify-center">
+          <div className="flex justify-center">
             <div
-              className="flex w-full items-center justify-between p-5 bg-sky-50 rounded-[30px] border-2 border-teal-600"
-              style={{ height: "50px" }}
+              className="flex w-full max-w-xs md:max-w-full h-10 md:h-12 items-center justify-between p-2 bg-sky-50 rounded-[30px] border-2 border-teal-600"
             >
               <button
                 onClick={() => decrementQuantity(id)}
-                className="text-teal-600 text-xl font-semibold"
+                className="text-teal-600 p-1 text-lg md:text-xl font-semibold"
               >
                 <FaMinus style={{ width: "16px" }} />
               </button>
-              <span className="text-stone-900 text-2xl font-semibold">
+              <span className="text-stone-900 text-xl md:text-2xl font-semibold">
                 {quantity}
               </span>
               <button
                 onClick={() => incrementQuantity(id)}
-                className="text-teal-600 text-2xl font-semibold"
+                className="text-teal-600 p-1 text-lg md:text-xl font-semibold"
               >
                 <FaPlus style={{ width: "16px" }} />
               </button>
@@ -61,8 +62,7 @@ const StoreItem = ({
           // If item is not in cart, show Add to Cart button
           <button
             onClick={() => addToCart(id)}
-            className="w-full bg-teal-600 text-white px-4 py-2 rounded-[5px] shadow-inner flex justify-center items-center font-semibold hover:bg-teal-400 shadow-inner-custom"
-            style={{ height: "50px" }}
+            className="w-full h-10 md:h-12  bg-teal-600 text-white px-4 py-2 rounded-md shadow-inner flex justify-center items-center font-semibold hover:bg-teal-400"
           >
             Add to Bag
           </button>
