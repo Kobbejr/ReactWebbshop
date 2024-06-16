@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "../fetch/fetchData";
-
 import ProductList from "../components/ShoppingFlow/ProductList.jsx";
 
 

@@ -1,5 +1,3 @@
-// CartContext.jsx
-
 import React, { createContext, useContext, useState, useEffect } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import fetchData from "../../fetch/fetchData"; // Import the function to fetch product data
@@ -62,6 +60,10 @@ export const ShoppingCartProvider = ({ children }) => {
     });
   };
 
+  const getItemQuantity = (id) => {
+    return cart[id] || 0;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -72,6 +74,7 @@ export const ShoppingCartProvider = ({ children }) => {
         decrementQuantity,
         setProducts,
         removeFromCart,
+        getItemQuantity,
       }}
     >
       {children}
