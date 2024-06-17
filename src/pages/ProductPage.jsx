@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import fetchData from "../fetch/fetchData";
+import { useShoppingCart } from "../components/context/CartContext";
+import Currency from "../components/ShoppingFlow/Currency";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 
 const ProductPage = () => {
   const { id } = useParams(); // Get the product ID from the URL params
   const [product, setProduct] = useState(null); // State to store the product
+  const { addToCart, incrementQuantity, decrementQuantity, getItemQuantity } = useShoppingCart();
 
   useEffect(() => {
     // Fetch the product details based on the ID
     fetchData()
       .then((products) => {
         const foundProduct = products.find((item) => item.id === parseInt(id));
-        setProduct(foundProduct); // Set the product state
+        if (foundProduct) {
+          setProduct(foundProduct); // Set the product state
+        } else {
+          console.error("Product not found");
+        }
       })
       .catch((error) => {
         console.error("Error fetching product:", error);
@@ -23,17 +31,51 @@ const ProductPage = () => {
     return <div>Loading...</div>;
   }
 
+  const quantity = getItemQuantity(product.id);
+
   return (
-    <div className="container mx-auto py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        <div>
+    <div className="container mx-auto py-8 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+        <div className="filter-card bg-gradient-to-t p-4 rounded-md sm:col-span-1 w-50 from-teal-600 to-transparent">
           <img src={product.image} alt={product.title} className="w-full" />
         </div>
-        <div>
+        <div className="sm:col-span-1">
           <h2 className="text-2xl font-bold">{product.title}</h2>
-          <p className="text-gray-600">${product.price.toFixed(2)}</p>
+          <p className="text-gray-600">{Currency(product.price)}</p>
           <p className="mt-4">{product.description}</p>
-          {/* Add more details about the product as needed */}
+          {/* Add the increment, decrement, and add to cart buttons */}
+          <div className="mt-4">
+            {quantity > 0 ? (
+              <div className="w-full">
+ <div
+              className="flex w-full max-w-xs md:max-w-full h-10 md:h-12 items-center justify-between p-2 bg-sky-50 rounded-[30px] border-2 border-teal-600"
+            >
+              <button
+                onClick={() => decrementQuantity(id)}
+                className="text-teal-600 p-1 text-lg md:text-xl font-semibold"
+              >
+                <FaMinus style={{ width: "16px" }} />
+              </button>
+              <span className="text-stone-900 text-xl md:text-2xl font-semibold">
+                {quantity}
+              </span>
+              <button
+                onClick={() => incrementQuantity(id)}
+                className="text-teal-600 p-1 text-lg md:text-xl font-semibold"
+              >
+                <FaPlus style={{ width: "16px" }} />
+              </button>
+            </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => addToCart(product.id)}
+                className="w-full h-10 bg-teal-600 text-white lg:px-4 md:px-2 sm:px-2 py-2 rounded-[5px] shadow-inner flex justify-center items-center font-semibold hover:bg-teal-400 shadow-inner-custom"
+              >
+                Add to Cart
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
