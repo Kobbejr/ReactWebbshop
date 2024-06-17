@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import fetchData from "../fetch/fetchData";
 import { useShoppingCart } from "../components/context/CartContext";
 import Currency from "../components/ShoppingFlow/Currency";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 
 const ProductPage = () => {
   const { id } = useParams(); // Get the product ID from the URL params
@@ -46,28 +47,30 @@ const ProductPage = () => {
           <div className="mt-4">
             {quantity > 0 ? (
               <div className="w-full">
-                <div className="flex items-center justify-between p-5 bg-sky-50 rounded-[30px] border-2 border-teal-600">
-                  <button
-                    onClick={() => decrementQuantity(product.id)}
-                    className="text-stone-900 text-2xl font-semibold"
-                  >
-                    -
-                  </button>
-                  <span className="text-stone-900 text-2xl md:px-4 sm:px-3 font-semibold">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() => incrementQuantity(product.id)}
-                    className="text-stone-900 text-2xl font-semibold"
-                  >
-                    +
-                  </button>
-                </div>
+ <div
+              className="flex w-full max-w-xs md:max-w-full h-10 md:h-12 items-center justify-between p-2 bg-sky-50 rounded-[30px] border-2 border-teal-600"
+            >
+              <button
+                onClick={() => decrementQuantity(id)}
+                className="text-teal-600 p-1 text-lg md:text-xl font-semibold"
+              >
+                <FaMinus style={{ width: "16px" }} />
+              </button>
+              <span className="text-stone-900 text-xl md:text-2xl font-semibold">
+                {quantity}
+              </span>
+              <button
+                onClick={() => incrementQuantity(id)}
+                className="text-teal-600 p-1 text-lg md:text-xl font-semibold"
+              >
+                <FaPlus style={{ width: "16px" }} />
+              </button>
+            </div>
               </div>
             ) : (
               <button
                 onClick={() => addToCart(product.id)}
-                className="w-full bg-teal-600 text-white lg:px-4 md:px-2 sm:px-2 py-2 rounded-[5px] shadow-inner flex justify-center items-center font-semibold hover:bg-teal-400 shadow-inner-custom"
+                className="w-full h-10 bg-teal-600 text-white lg:px-4 md:px-2 sm:px-2 py-2 rounded-[5px] shadow-inner flex justify-center items-center font-semibold hover:bg-teal-400 shadow-inner-custom"
               >
                 Add to Cart
               </button>
