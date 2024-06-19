@@ -1,3 +1,4 @@
+// Importerat React och nödvändiga komponenter och ikoner
 import React from 'react';
 import { useShoppingCart } from '../components/context/CartContext';
 import { Link } from "react-router-dom";

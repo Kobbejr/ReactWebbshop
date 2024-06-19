@@ -102,14 +102,11 @@ const OrderConfirmation = () => {
                   <p>Päronvägen 3, Stockholm, Sweden</p>
                 </div>
                 <a
-          
-          href="/checkoutPage"
-          className="inline-block w-80 rounded bg-teal-500 px-8 py-3 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom mt-4"
-        >
-
-      
-          Edit details
-        </a>
+                  href="/checkoutPage"
+                  className="inline-block w-full md:w-2/3 lg:w-1/2 rounded bg-teal-500 px-4 py-2 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom mt-4"
+                >
+                  Edit details
+                </a>
               </div>
             </div>
             <div className="bg-white shadow-lg rounded-lg p-6">
@@ -133,20 +130,15 @@ const OrderConfirmation = () => {
             <div className="bg-white shadow-lg rounded-lg p-6">
               <h2 className="text-xl font-semibold text-stone-700 mb-4">
                 Shipping
-            
               </h2>
               <p>DPD Delivery</p>
-              <p>Delivery with 24 Hours</p>
+              <p>Delivery within 24 Hours</p>
               <a
-          
-          href="/checkoutPage"
-          className="inline-block w-80 rounded bg-teal-500 px-8 py-3 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom mt-4"
-        >
-
-      
-          View tracking info
-        </a>
-              
+                href="/checkoutPage"
+                className="inline-block w-full md:w-2/3 lg:w-1/2 rounded bg-teal-500 px-4 py-2 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom mt-4"
+              >
+                View tracking info
+              </a>
             </div>
           </div>
         </div>
