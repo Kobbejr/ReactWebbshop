@@ -1,12 +1,11 @@
-// Importerat React och nödvändiga komponenter och ikoner
-import React from 'react';
-import { useShoppingCart } from '../components/context/CartContext';
+import React from "react";
+import { useShoppingCart } from "../components/context/CartContext";
 import { Link } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { IoTrashOutline } from "react-icons/io5";
 import Currency from "../components/ShoppingFlow/Currency";
 
-export default function Checkoutpage() {
+const Checkoutpage = () => {
   const {
     cart = {},
     products,
@@ -30,19 +29,26 @@ export default function Checkoutpage() {
       <div className="lg:grid lg:grid-rows-2 lg:grid-cols-5 lg:max-w-screen-lg mx-auto">
         <div className="lg:col-span-3 bg-sky-50 lg:rounded-l-lg p-8">
           <div>
-            <h1 className="text-3xl font-bold text-left text-stone-600 mb-8">Fish Bag</h1>
+            <h1 className="text-3xl font-bold text-left text-stone-600 mb-8">
+              Fish Bag
+            </h1>
           </div>
 
           <div className="lg:p-4 divide-y">
             {Object.keys(cart).length > 0 ? (
               Object.keys(cart).map((id) => {
-                const product = products.find((item) => item.id === parseInt(id));
+                const product = products.find(
+                  (item) => item.id === parseInt(id)
+                );
                 if (!product) {
                   // Product not found
                   return null;
                 }
                 return (
-                  <div key={id} className="flex text-stone-600 items-center justify-between p-2">
+                  <div
+                    key={id}
+                    className="flex text-stone-600 items-center justify-between p-2"
+                  >
                     {/* Link to product page */}
                     <Link to={`/products/${id}`}>
                       <div className="flex items-center space-x-4">
@@ -91,18 +97,22 @@ export default function Checkoutpage() {
               })
             ) : (
               // Empty cart message
-              <p className="text-center text-stone-600">Your Fish bag is empty</p>
+              <p className="text-center text-stone-600">
+                Your Fish bag is empty
+              </p>
             )}
           </div>
         </div>
 
-        <div className='lg:col-span-2 bg-white lg:rounded-r-lg p-8'>
+        <div className="lg:col-span-2 bg-white lg:rounded-r-lg p-8">
           <div>
-            <h2 className="text-xl font-bold text-left text-stone-600 mb-8">Summary</h2>
+            <h2 className="text-xl font-bold text-left text-stone-600 mb-8">
+              Summary
+            </h2>
           </div>
 
           <div className="flex flex-col">
-            <div className='text-base'>
+            <div className="text-base">
               <div className="border-b pb-4 mb-4">
                 <p className="flex justify-between">
                   <span>Subtotal:</span>{" "}
@@ -118,12 +128,19 @@ export default function Checkoutpage() {
               </p>
             </div>
 
-            <div className='pt-10'>
-              <a href="/order-confirmation" class="rounded bg-teal-500 px-8 py-3 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom">Pay</a>
+            <div className="pt-10">
+              <a
+                href="/order-confirmation"
+                className="rounded bg-teal-500 px-8 py-3 text-center font-semibold text-white hover:bg-teal-400 shadow-inner-custom"
+              >
+                Pay
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Checkoutpage;
